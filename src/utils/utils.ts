@@ -1,3 +1,5 @@
+import { commonConfig } from "../config";
+
 /**
  * Generate a random number between min and max.
  * 
@@ -6,6 +8,9 @@
  * @returns A random number between min and max.
  */
 export const random = (min: number, max: number) => {
+  if (max < min) {
+    throw new Error('Maximum sleep time is less than minimum sleep time');
+  }
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
@@ -17,12 +22,13 @@ export const random = (min: number, max: number) => {
  * @returns A promise that resolves after the sleep time.
  */
 export const sleep = async (min: number, max: number) => {
-  await new Promise((resolve) => setTimeout(resolve, random(min, max)));
-};
-
-// 金額をパースする
-export const parsePrice = (price: string, currency: string = 'jpy') => {
-    // ￥3,665 から 3665 に変換
-    const parsed = price.replace(/[^0-9]/g, '');
-    return currency === 'jpy' ? parseInt(parsed) : parseFloat(parsed);
+  // 念のため少ない数字が指定された場合はエラーを投げる
+  if (min < 1001 || max < 1001) {
+    throw new Error('Minimum sleep time is less than 1001 milliseconds');
+  }
+  if (min < commonConfig.minimumWaitTime) {
+    min = commonConfig.minimumWaitTime;
+    max = min + commonConfig.minimumWaitTime - min;
+  }
+  return new Promise((resolve) => setTimeout(resolve, random(min, max)));
 };
