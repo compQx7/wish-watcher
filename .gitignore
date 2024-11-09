@@ -5,6 +5,7 @@ __pycache__/
 
 node_modules/
 output/
+coverage/
 
 # C extensions
 *.so
