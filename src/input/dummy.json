@@ -1,0 +1,18 @@
+[
+    {
+        "title": "dummy",
+        "url": "https://playwright.dev/",
+        "alertOptions": {
+            "listPrice": 2000,
+            "desiredDiscountRate": 0.2
+        }
+    },
+    {
+        "title": "dummy",
+        "url": "https://playwright.dev/",
+        "alertOptions": {
+            "listPrice": 2000,
+            "desiredDiscountPrice": 2000
+        }
+    }
+]

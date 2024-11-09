@@ -1,6 +1,6 @@
 export interface AlertOptions {
-  desiredReductionPrice?: number | undefined;
-  desiredReductionRate?: number | undefined;
+  desiredDiscountPrice?: number | undefined;
+  desiredDiscountRate?: number | undefined;
   screenshot?: boolean | undefined;
 }
 

@@ -26,7 +26,7 @@ const getCheckers = (alertOptions: AlertOptions | undefined) => {
   }
 
   // Add a check functions depending on the alertOptions.
-  if (alertOptions.desiredReductionRate !== undefined) {
+  if (alertOptions.desiredDiscountRate !== undefined) {
     checkers.push(checkDiscountRate);
   }
   return checkers;
