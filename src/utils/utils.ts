@@ -1,4 +1,4 @@
-import { commonConfig } from "../config";
+import config from "../config";
 
 /**
  * Generate a random number between min and max.
@@ -26,9 +26,9 @@ export const sleep = async (min: number, max: number) => {
   if (min < 1001 || max < 1001) {
     throw new Error('Minimum sleep time is less than 1001 milliseconds');
   }
-  if (min < commonConfig.minimumWaitTime) {
-    min = commonConfig.minimumWaitTime;
-    max = min + commonConfig.minimumWaitTime - min;
+  if (min < config.minimumWaitTime) {
+    min = config.minimumWaitTime;
+    max = min + config.minimumWaitTime - min;
   }
   return new Promise((resolve) => setTimeout(resolve, random(min, max)));
 };

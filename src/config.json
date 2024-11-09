@@ -1,3 +1,5 @@
 {
+    "inputDirectory": "./input",
+    "outputDirectory": "../output",
     "minimumWaitTime": 5137
 }
